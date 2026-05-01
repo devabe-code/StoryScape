@@ -1,6 +1,6 @@
 # StoryScape
 
-StoryScape is a public-domain immersive reading platform that turns classic books into episode-based reading experiences with optional ambient soundscapes.
+StoryScape is an immersive reading platform that turns classic books into episode-based reading experiences.
 
 ## Current Milestone
 
