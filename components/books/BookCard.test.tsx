@@ -9,7 +9,7 @@ describe("BookCard", () => {
 
     expect(screen.getByRole("heading", { name: "Dracula" })).toBeInTheDocument();
     expect(screen.getByText(/Bram Stoker, 1897/)).toBeInTheDocument();
-    expect(screen.getByText("Castle Night")).toBeInTheDocument();
+    expect(screen.getAllByText("Castle Night")).toHaveLength(2);
   });
 
   it("links to the detail page and first reader episode", () => {

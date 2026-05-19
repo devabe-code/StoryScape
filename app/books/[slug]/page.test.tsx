@@ -19,7 +19,7 @@ describe("BookDetailPage", () => {
     render(await BookDetailPage({ params: Promise.resolve({ slug: "dracula" }) }));
 
     expect(screen.getByRole("heading", { level: 1, name: "Dracula" })).toBeInTheDocument();
-    expect(screen.getByText(/Bram Stoker/)).toBeInTheDocument();
+    expect(screen.getAllByText("Bram Stoker")).toHaveLength(2);
     expect(screen.getByRole("button", { name: /save to library/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /episode 1/i })).toHaveAttribute("href", "/read/dracula/1");
   });
