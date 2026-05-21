@@ -14,15 +14,15 @@ const config: Config = {
         fog: "#d8ded9",
         moss: "#4a6358",
         ember: "#b35c39",
-        brass: "#ad8b4d"
+        brass: "#ad8b4d",
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"]
+        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 20px 60px rgba(24, 33, 31, 0.12)"
-      }
+        soft: "0 20px 60px rgba(24, 33, 31, 0.12)",
+      },
     },
   },
   plugins: [],

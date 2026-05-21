@@ -15,7 +15,13 @@ describe("BookCard", () => {
   it("links to the detail page and first reader episode", () => {
     render(<BookCard book={books[0]} />);
 
-    expect(screen.getByRole("link", { name: /dracula/i })).toHaveAttribute("href", "/books/dracula");
-    expect(screen.getByRole("link", { name: /start episode 1/i })).toHaveAttribute("href", "/read/dracula/1");
+    expect(screen.getByRole("link", { name: /dracula/i })).toHaveAttribute(
+      "href",
+      "/books/dracula"
+    );
+    expect(screen.getByRole("link", { name: /start episode 1/i })).toHaveAttribute(
+      "href",
+      "/read/dracula/1"
+    );
   });
 });

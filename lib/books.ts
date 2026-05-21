@@ -48,31 +48,30 @@ export const books: Book[] = [
         excerpt: [
           "The train moved with a tired patience through the darkening country, and the mountains rose ahead like a wall built for secrets.",
           "At the inn, every warning came wrapped in courtesy. The sign of the cross, the lowered voice, the hurried glance toward the road.",
-          "By the time the carriage arrived, the night had gathered itself close around him. The driver did not speak, and the horses knew the way too well."
+          "By the time the carriage arrived, the night had gathered itself close around him. The driver did not speak, and the horses knew the way too well.",
         ],
         soundscape: {
           name: "Castle Night",
           mood: "Low wind, distant thunder, and a faint stone-hall hush.",
-          layers: ["Mountain wind", "Low room tone", "Sparse thunder"]
-        }
+          layers: ["Mountain wind", "Low room tone", "Sparse thunder"],
+        },
       },
       {
         number: 2,
         title: "The Count's Guest",
         estimatedMinutes: 24,
-        summary:
-          "Hospitality turns uneasy as Harker begins to understand the rules of the castle.",
+        summary: "Hospitality turns uneasy as Harker begins to understand the rules of the castle.",
         excerpt: [
           "The Count smiled as though he had been expecting every question before it was asked.",
-          "No mirror answered the room. No servant crossed the hall. Even the doors seemed to listen."
+          "No mirror answered the room. No servant crossed the hall. Even the doors seemed to listen.",
         ],
         soundscape: {
           name: "Stone Corridor",
           mood: "Soft drafts, old doors, and distant footsteps.",
-          layers: ["Cold ambience", "Door creak", "Subtle pulse"]
-        }
-      }
-    ]
+          layers: ["Cold ambience", "Door creak", "Subtle pulse"],
+        },
+      },
+    ],
   },
   {
     title: "Frankenstein",
@@ -94,15 +93,15 @@ export const books: Book[] = [
           "An explorer writes from the edge of the world, hungry for glory and companionship.",
         excerpt: [
           "The ice held the ship in a silence so complete that every board and rope seemed to confess its strain.",
-          "Walton wrote by lamplight, not yet knowing what kind of story the frozen sea was sending toward him."
+          "Walton wrote by lamplight, not yet knowing what kind of story the frozen sea was sending toward him.",
         ],
         soundscape: {
           name: "Arctic Drift",
           mood: "Deep wind, creaking hull, and open white distance.",
-          layers: ["Polar wind", "Ship timber", "Low drone"]
-        }
-      }
-    ]
+          layers: ["Polar wind", "Ship timber", "Low drone"],
+        },
+      },
+    ],
   },
   {
     title: "The Strange Case of Dr. Jekyll and Mr. Hyde",
@@ -120,19 +119,18 @@ export const books: Book[] = [
         number: 1,
         title: "Story of the Door",
         estimatedMinutes: 16,
-        summary:
-          "Mr. Utterson hears a troubling story attached to an ordinary London doorway.",
+        summary: "Mr. Utterson hears a troubling story attached to an ordinary London doorway.",
         excerpt: [
           "The street was respectable in daylight, but dusk gave every window another face.",
-          "Enfield's story settled over the walk like fog, changing the shape of the door before them."
+          "Enfield's story settled over the walk like fog, changing the shape of the door before them.",
         ],
         soundscape: {
           name: "Foggy London",
           mood: "Damp cobblestones, carriage wheels, and muted street air.",
-          layers: ["Street rain", "Carriage pass", "Low room tone"]
-        }
-      }
-    ]
+          layers: ["Street rain", "Carriage pass", "Low room tone"],
+        },
+      },
+    ],
   },
   {
     title: "Pride and Prejudice",
@@ -150,20 +148,19 @@ export const books: Book[] = [
         number: 1,
         title: "A Single Man",
         estimatedMinutes: 14,
-        summary:
-          "News of Netherfield's new tenant stirs Mrs. Bennet into immediate strategy.",
+        summary: "News of Netherfield's new tenant stirs Mrs. Bennet into immediate strategy.",
         excerpt: [
           "The morning room carried the entire weight of Mrs. Bennet's expectations.",
-          "A fortune had arrived in the neighborhood, and every chair in the house seemed to know it."
+          "A fortune had arrived in the neighborhood, and every chair in the house seemed to know it.",
         ],
         soundscape: {
           name: "Manor Morning",
           mood: "Light room tone, birds beyond glass, and a distant pianoforte.",
-          layers: ["Open window", "Soft birds", "Pianoforte"]
-        }
-      }
-    ]
-  }
+          layers: ["Open window", "Soft birds", "Pianoforte"],
+        },
+      },
+    ],
+  },
 ];
 
 export function getBook(slug: string) {

@@ -7,7 +7,10 @@ describe("HomePage", () => {
     render(<HomePage />);
 
     expect(screen.getByRole("heading", { level: 1, name: "StoryScape" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /start dracula/i })).toHaveAttribute("href", "/read/dracula/1");
+    expect(screen.getByRole("link", { name: /start dracula/i })).toHaveAttribute(
+      "href",
+      "/read/dracula/1"
+    );
     expect(screen.getByRole("link", { name: /browse library/i })).toHaveAttribute("href", "/books");
   });
 
