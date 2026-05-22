@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Menu, Settings } from "lucide-react";
 import { SiteHeader } from "@/components/layout";
 import { SoundscapePlayer } from "@/components/reader";
+import { Button, ButtonLink, Card, Container } from "@/components/ui";
 import { books, getBook, getEpisode } from "@/lib/books";
 
 export function generateStaticParams() {
@@ -38,14 +38,11 @@ export default async function ReaderPage({
     <main className="min-h-screen bg-[#fbfaf5]">
       <SiteHeader />
       <div className="border-b border-ink/10 bg-paper">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-          <Link
-            className="focus-ring inline-flex h-10 items-center gap-2 rounded-md px-2 text-sm font-semibold text-ink/70 hover:bg-ink/5 hover:text-ink"
-            href={`/books/${book.slug}`}
-          >
+        <Container className="flex items-center justify-between gap-3 py-3">
+          <ButtonLink href={`/books/${book.slug}`} size="sm" variant="ghost">
             <ArrowLeft size={17} aria-hidden="true" />
             Book
-          </Link>
+          </ButtonLink>
           <div className="min-w-0 text-center">
             <p className="truncate text-sm font-semibold">{book.title}</p>
             <p className="text-xs text-ink/55">
@@ -53,28 +50,20 @@ export default async function ReaderPage({
             </p>
           </div>
           <div className="flex items-center gap-1">
-            <button
-              className="focus-ring grid h-10 w-10 place-items-center rounded-md hover:bg-ink/5"
-              type="button"
-              aria-label="Reader settings"
-            >
+            <Button aria-label="Reader settings" className="grid" size="icon" variant="ghost">
               <Settings size={17} aria-hidden="true" />
-            </button>
-            <button
-              className="focus-ring grid h-10 w-10 place-items-center rounded-md hover:bg-ink/5"
-              type="button"
-              aria-label="Episode menu"
-            >
+            </Button>
+            <Button aria-label="Episode menu" className="grid" size="icon" variant="ghost">
               <Menu size={18} aria-hidden="true" />
-            </button>
+            </Button>
           </div>
-        </div>
+        </Container>
         <div className="h-1 bg-ink/10">
           <div className="h-full bg-ember" style={{ width: `${percent}%` }} />
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <Container className="grid gap-8 py-8 lg:grid-cols-[minmax(0,1fr)_340px]">
         <article className="mx-auto w-full max-w-3xl">
           <header className="border-b border-ink/10 pb-6">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ember">
@@ -110,36 +99,27 @@ export default async function ReaderPage({
             className="mt-10 flex flex-col gap-3 border-t border-ink/10 pt-6 sm:flex-row sm:items-center sm:justify-between"
             aria-label="Episode navigation"
           >
-            <Link
-              className="focus-ring inline-flex h-11 items-center justify-center gap-2 rounded-md border border-ink/15 px-4 text-sm font-semibold hover:bg-paper"
-              href={`/books/${book.slug}`}
-            >
+            <ButtonLink href={`/books/${book.slug}`} variant="secondary">
               <ArrowLeft size={16} aria-hidden="true" />
               Episodes
-            </Link>
+            </ButtonLink>
             {nextEpisode ? (
-              <Link
-                className="focus-ring inline-flex h-11 items-center justify-center gap-2 rounded-md bg-ink px-4 text-sm font-semibold text-paper hover:bg-moss"
-                href={`/read/${book.slug}/${nextEpisode.number}`}
-              >
+              <ButtonLink href={`/read/${book.slug}/${nextEpisode.number}`}>
                 Next Episode
                 <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+              </ButtonLink>
             ) : (
-              <Link
-                className="focus-ring inline-flex h-11 items-center justify-center gap-2 rounded-md bg-ink px-4 text-sm font-semibold text-paper hover:bg-moss"
-                href="/"
-              >
+              <ButtonLink href="/">
                 Back Home
                 <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+              </ButtonLink>
             )}
           </nav>
         </article>
 
         <aside className="space-y-4 lg:sticky lg:top-6 lg:self-start">
           <SoundscapePlayer profile={currentEpisode.soundscape} />
-          <section className="rounded-lg border border-ink/10 bg-white/65 p-4">
+          <Card as="section" className="p-4" variant="quiet">
             <p className="text-sm font-semibold text-ember">Reading Progress</p>
             <p className="mt-2 text-3xl font-semibold">{percent}%</p>
             <div className="mt-3 h-2 overflow-hidden rounded-full bg-ink/10">
@@ -149,9 +129,9 @@ export default async function ReaderPage({
               Mock persistence is active for the demo surface. Real user progress will move behind
               auth and the database schema next.
             </p>
-          </section>
+          </Card>
         </aside>
-      </div>
+      </Container>
     </main>
   );
 }

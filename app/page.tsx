@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Clock, Headphones, Play } from "lucide-react";
 import { BookCard, BookCover } from "@/components/books";
 import { SiteHeader } from "@/components/layout";
+import { ButtonLink, Card, Container, SectionHeader } from "@/components/ui";
 import { books, continueReading } from "@/lib/books";
 
 export default function HomePage() {
@@ -11,7 +12,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-paper">
       <SiteHeader />
-      <section className="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:py-14">
+      <Container as="section" className="grid gap-8 py-8 lg:grid-cols-[1.15fr_0.85fr] lg:py-14">
         <div className="flex flex-col justify-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ember">
             Public-domain reading, re-shaped
@@ -24,24 +25,18 @@ export default function HomePage() {
             soundscapes that support the mood without stealing the page.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-ink px-5 font-semibold text-paper hover:bg-moss"
-              href={`/read/${featured.slug}/1`}
-            >
+            <ButtonLink href={`/read/${featured.slug}/1`} size="lg">
               <Play size={18} aria-hidden="true" />
               Start Dracula
-            </Link>
-            <Link
-              className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md border border-ink/15 px-5 font-semibold text-ink hover:bg-white/60"
-              href="/books"
-            >
+            </ButtonLink>
+            <ButtonLink href="/books" size="lg" variant="secondary">
               Browse Library
               <ArrowRight size={18} aria-hidden="true" />
-            </Link>
+            </ButtonLink>
           </div>
         </div>
 
-        <aside className="rounded-lg border border-ink/10 bg-white/55 p-4 shadow-soft">
+        <Card as="aside" className="p-4" variant="elevated">
           <div className="grid gap-4 sm:grid-cols-[150px_1fr] lg:grid-cols-1">
             <BookCover book={featured} />
             <div className="space-y-4">
@@ -62,11 +57,11 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </aside>
-      </section>
+        </Card>
+      </Container>
 
       <section className="border-y border-ink/10 bg-[#edf1eb]">
-        <div className="mx-auto grid max-w-6xl gap-4 px-4 py-6 sm:grid-cols-3 sm:px-6">
+        <Container className="grid gap-4 py-6 sm:grid-cols-3">
           <div>
             <p className="text-3xl font-semibold">{books.length}</p>
             <p className="text-sm text-ink/65">Curated classics</p>
@@ -79,20 +74,23 @@ export default function HomePage() {
             <p className="text-3xl font-semibold">Subtle</p>
             <p className="text-sm text-ink/65">Soundscapes by default</p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {continueReading ? (
-        <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <h2 className="font-serif text-3xl">Continue Reading</h2>
-            <Link
-              className="focus-ring rounded-sm text-sm font-semibold text-moss hover:text-ink"
-              href="/books"
-            >
-              View all
-            </Link>
-          </div>
+        <Container as="section" className="py-10">
+          <SectionHeader
+            action={
+              <Link
+                className="focus-ring rounded-sm text-sm font-semibold text-moss hover:text-ink"
+                href="/books"
+              >
+                View all
+              </Link>
+            }
+            className="mb-4"
+            heading="Continue Reading"
+          />
           <Link
             className="focus-ring grid gap-4 rounded-lg border border-ink/10 bg-white/60 p-4 shadow-sm hover:bg-white sm:grid-cols-[96px_1fr_auto]"
             href={`/read/${continueReading.slug}/1`}
@@ -117,24 +115,21 @@ export default function HomePage() {
               Resume <ArrowRight size={16} aria-hidden="true" />
             </span>
           </Link>
-        </section>
+        </Container>
       ) : null}
 
-      <section className="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
-        <div className="mb-5 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="font-serif text-3xl">Curated Library</h2>
-            <p className="mt-2 text-sm text-ink/65">
-              A small catalog chosen for atmosphere, pacing, and provenance.
-            </p>
-          </div>
-        </div>
+      <Container as="section" className="pb-12">
+        <SectionHeader
+          className="mb-5"
+          heading="Curated Library"
+          supportingText="A small catalog chosen for atmosphere, pacing, and provenance."
+        />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {books.map((book) => (
             <BookCard key={book.slug} book={book} />
           ))}
         </div>
-      </section>
+      </Container>
     </main>
   );
 }
