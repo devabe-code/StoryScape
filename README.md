@@ -37,6 +37,10 @@ npm run test:e2e
 
 Every page, reusable component, utility, API route, backend service, and future feature should include dedicated tests alongside the implementation.
 
+## Pull Request Validation
+
+CI runs on pull requests targeting `main` and on pushes to `main`. Before merge, CI must pass linting, formatting, type checking, tests, and the production build.
+
 ## Component Organization
 
 Components are grouped by the part of the site they support:

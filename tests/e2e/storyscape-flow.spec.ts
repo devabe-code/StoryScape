@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 
-test("reader can browse, start Dracula, use soundscape, and return to continue reading", async ({ page }) => {
+test("reader can browse, start Dracula, use soundscape, and return to continue reading", async ({
+  page,
+}) => {
   await page.goto("/");
 
   await expect(page.getByRole("heading", { name: "StoryScape" })).toBeVisible();

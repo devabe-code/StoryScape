@@ -13,7 +13,10 @@ export function SoundscapePlayer({ profile }: { profile: SoundscapeProfile }) {
   const [volume, setVolume] = useState(42);
 
   return (
-    <section className="rounded-lg border border-ink/10 bg-white/65 p-4 shadow-sm" aria-labelledby="soundscape-title">
+    <section
+      className="rounded-lg border border-ink/10 bg-white/65 p-4 shadow-sm"
+      aria-labelledby="soundscape-title"
+    >
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-ember">Soundscape</p>
@@ -34,7 +37,10 @@ export function SoundscapePlayer({ profile }: { profile: SoundscapeProfile }) {
 
       <div className="mt-4 flex flex-wrap gap-2">
         {profile.layers.map((layer) => (
-          <span key={layer} className="rounded-full bg-moss/10 px-2.5 py-1 text-xs font-medium text-moss">
+          <span
+            key={layer}
+            className="rounded-full bg-moss/10 px-2.5 py-1 text-xs font-medium text-moss"
+          >
             {layer}
           </span>
         ))}
@@ -52,7 +58,11 @@ export function SoundscapePlayer({ profile }: { profile: SoundscapeProfile }) {
               onClick={() => setMuted((value) => !value)}
               aria-label={muted ? "Unmute soundscape" : "Mute soundscape"}
             >
-              {muted ? <VolumeX size={17} aria-hidden="true" /> : <Volume2 size={17} aria-hidden="true" />}
+              {muted ? (
+                <VolumeX size={17} aria-hidden="true" />
+              ) : (
+                <Volume2 size={17} aria-hidden="true" />
+              )}
             </button>
             <input
               className="h-2 w-full accent-ember"

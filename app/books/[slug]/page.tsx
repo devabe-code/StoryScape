@@ -33,14 +33,19 @@ export default async function BookDetailPage({ params }: { params: Promise<{ slu
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ember">{book.author}</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ember">
+            {book.author}
+          </p>
           <h1 className="mt-3 font-serif text-5xl leading-tight">{book.title}</h1>
           <p className="mt-2 text-sm text-ink/60">First published {book.year}</p>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-ink/74">{book.description}</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
             {book.moodTags.map((tag) => (
-              <span key={tag} className="rounded-full bg-moss/10 px-3 py-1.5 text-sm font-medium text-moss">
+              <span
+                key={tag}
+                className="rounded-full bg-moss/10 px-3 py-1.5 text-sm font-medium text-moss"
+              >
                 {tag}
               </span>
             ))}
@@ -76,7 +81,9 @@ export default async function BookDetailPage({ params }: { params: Promise<{ slu
                   <div>
                     <p className="text-sm font-semibold text-ember">Episode {episode.number}</p>
                     <h3 className="mt-1 font-serif text-2xl">{episode.title}</h3>
-                    <p className="mt-2 max-w-2xl text-sm leading-6 text-ink/70">{episode.summary}</p>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-ink/70">
+                      {episode.summary}
+                    </p>
                   </div>
                   <span className="inline-flex items-center gap-2 self-center text-sm font-semibold text-moss">
                     Read <ArrowRight size={16} aria-hidden="true" />

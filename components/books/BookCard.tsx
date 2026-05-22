@@ -22,7 +22,10 @@ export function BookCard({ book }: { book: Book }) {
         <p className="line-clamp-3 text-sm leading-6 text-ink/75">{book.description}</p>
         <div className="flex flex-wrap gap-2">
           {book.moodTags.map((tag) => (
-            <span key={tag} className="rounded-full bg-moss/10 px-2.5 py-1 text-xs font-medium text-moss">
+            <span
+              key={tag}
+              className="rounded-full bg-moss/10 px-2.5 py-1 text-xs font-medium text-moss"
+            >
               {tag}
             </span>
           ))}
