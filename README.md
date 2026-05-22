@@ -47,6 +47,14 @@ npx playwright install
 
 CI runs on pull requests targeting `main` and on pushes to `main`. Before merge, CI must pass linting, formatting, type checking, tests, and the production build.
 
+## Product and UI Docs
+
+Shared UI direction is tracked in `docs/`:
+
+- `docs/visual-direction.md`: product feel, palette, typography, and accessibility direction.
+- `docs/ui-bible.md`: working source of truth for UI patterns and rules.
+- `docs/ui-system.md`: implementation guide for shared UI primitives.
+
 ## Security Validation
 
 Security checks run on pull requests targeting `main`, on a weekly schedule, and manually through GitHub Actions. Unresolved high or critical dependency, Dependency Review, or CodeQL findings block merge unless the project owner explicitly approves and documents an exception.

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Bookmark, Clock, Headphones, Library } from "lucide-react";
 import { BookCover } from "@/components/books";
 import { SiteHeader } from "@/components/layout";
+import { Badge, Button, Card, Container } from "@/components/ui";
 import { books, getBook } from "@/lib/books";
 
 export function generateStaticParams() {
@@ -20,16 +21,13 @@ export default async function BookDetailPage({ params }: { params: Promise<{ slu
   return (
     <main className="min-h-screen bg-paper">
       <SiteHeader />
-      <section className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[340px_1fr]">
+      <Container as="section" className="grid gap-8 py-10 lg:grid-cols-[340px_1fr]">
         <div>
           <BookCover book={book} />
-          <button
-            className="focus-ring mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-ink/15 bg-white/55 text-sm font-semibold hover:bg-white"
-            type="button"
-          >
+          <Button className="mt-4 w-full bg-white/55 hover:bg-white" variant="secondary">
             <Bookmark size={17} aria-hidden="true" />
             Save to Library
-          </button>
+          </Button>
         </div>
 
         <div>
@@ -42,31 +40,28 @@ export default async function BookDetailPage({ params }: { params: Promise<{ slu
 
           <div className="mt-6 flex flex-wrap gap-2">
             {book.moodTags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-moss/10 px-3 py-1.5 text-sm font-medium text-moss"
-              >
+              <Badge key={tag} className="py-1.5 text-sm">
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg border border-ink/10 bg-white/55 p-4">
+            <Card className="p-4">
               <Library className="mb-3 text-moss" size={20} aria-hidden="true" />
               <p className="font-semibold">{book.episodes.length} episodes</p>
               <p className="mt-1 text-sm text-ink/62">Chapter-based sessions</p>
-            </div>
-            <div className="rounded-lg border border-ink/10 bg-white/55 p-4">
+            </Card>
+            <Card className="p-4">
               <Clock className="mb-3 text-moss" size={20} aria-hidden="true" />
               <p className="font-semibold">{book.episodes[0].estimatedMinutes} min start</p>
               <p className="mt-1 text-sm text-ink/62">Episode 1 estimate</p>
-            </div>
-            <div className="rounded-lg border border-ink/10 bg-white/55 p-4">
+            </Card>
+            <Card className="p-4">
               <Headphones className="mb-3 text-moss" size={20} aria-hidden="true" />
               <p className="font-semibold">{book.episodes[0].soundscape.name}</p>
               <p className="mt-1 text-sm text-ink/62">Assigned profile</p>
-            </div>
+            </Card>
           </div>
 
           <section className="mt-10">
@@ -93,7 +88,7 @@ export default async function BookDetailPage({ params }: { params: Promise<{ slu
             </div>
           </section>
         </div>
-      </section>
+      </Container>
     </main>
   );
 }
