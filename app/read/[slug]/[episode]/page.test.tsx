@@ -7,7 +7,7 @@ import ReaderPage, { generateStaticParams } from "./page";
 vi.mock("next/navigation", () => ({
   notFound: vi.fn(() => {
     throw new Error("NEXT_NOT_FOUND");
-  })
+  }),
 }));
 
 describe("ReaderPage", () => {
@@ -19,7 +19,9 @@ describe("ReaderPage", () => {
   it("renders episode content, progress, and reader controls", async () => {
     render(await ReaderPage({ params: Promise.resolve({ slug: "dracula", episode: "1" }) }));
 
-    expect(screen.getByRole("heading", { level: 1, name: "Jonathan Harker's Journal" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 1, name: "Jonathan Harker's Journal" })
+    ).toBeInTheDocument();
     expect(screen.getByText(/22 min read/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /reader settings/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /episode menu/i })).toBeInTheDocument();

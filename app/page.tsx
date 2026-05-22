@@ -13,12 +13,15 @@ export default function HomePage() {
       <SiteHeader />
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:py-14">
         <div className="flex flex-col justify-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ember">Public-domain reading, re-shaped</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ember">
+            Public-domain reading, re-shaped
+          </p>
           <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-[1.02] text-ink sm:text-6xl">
             StoryScape
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-ink/72">
-            Classic books become episode-based reading sessions with saved progress and subtle soundscapes that support the mood without stealing the page.
+            Classic books become episode-based reading sessions with saved progress and subtle
+            soundscapes that support the mood without stealing the page.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -83,7 +86,10 @@ export default function HomePage() {
         <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
           <div className="mb-4 flex items-center justify-between gap-4">
             <h2 className="font-serif text-3xl">Continue Reading</h2>
-            <Link className="focus-ring rounded-sm text-sm font-semibold text-moss hover:text-ink" href="/books">
+            <Link
+              className="focus-ring rounded-sm text-sm font-semibold text-moss hover:text-ink"
+              href="/books"
+            >
               View all
             </Link>
           </div>
@@ -93,11 +99,18 @@ export default function HomePage() {
           >
             <BookCover book={continueReading} compact />
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-ember">{continueReading.progress}% complete</p>
+              <p className="text-sm font-semibold text-ember">
+                {continueReading.progress}% complete
+              </p>
               <h3 className="mt-1 font-serif text-2xl">{continueReading.title}</h3>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-ink/70">{continueReading.episodes[0].summary}</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-ink/70">
+                {continueReading.episodes[0].summary}
+              </p>
               <div className="mt-4 h-2 overflow-hidden rounded-full bg-ink/10">
-                <div className="h-full rounded-full bg-ember" style={{ width: `${continueReading.progress}%` }} />
+                <div
+                  className="h-full rounded-full bg-ember"
+                  style={{ width: `${continueReading.progress}%` }}
+                />
               </div>
             </div>
             <span className="inline-flex items-center gap-2 self-center text-sm font-semibold text-moss">
@@ -111,7 +124,9 @@ export default function HomePage() {
         <div className="mb-5 flex items-end justify-between gap-4">
           <div>
             <h2 className="font-serif text-3xl">Curated Library</h2>
-            <p className="mt-2 text-sm text-ink/65">A small catalog chosen for atmosphere, pacing, and provenance.</p>
+            <p className="mt-2 text-sm text-ink/65">
+              A small catalog chosen for atmosphere, pacing, and provenance.
+            </p>
           </div>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
