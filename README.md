@@ -37,6 +37,12 @@ npm run test:e2e
 
 Every page, reusable component, utility, API route, backend service, and future feature should include dedicated tests alongside the implementation.
 
+Playwright E2E tests start the Next.js app through `playwright.config.ts`. Before running E2E tests for the first time, install browser dependencies:
+
+```bash
+npx playwright install
+```
+
 ## Pull Request Validation
 
 CI runs on pull requests targeting `main` and on pushes to `main`. Before merge, CI must pass linting, formatting, type checking, tests, and the production build.
