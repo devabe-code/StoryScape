@@ -47,6 +47,10 @@ npx playwright install
 
 CI runs on pull requests targeting `main` and on pushes to `main`. Before merge, CI must pass linting, formatting, type checking, tests, and the production build.
 
+## Security Validation
+
+Security checks run on pull requests targeting `main`, on a weekly schedule, and manually through GitHub Actions. Unresolved high or critical dependency, Dependency Review, or CodeQL findings block merge unless the project owner explicitly approves and documents an exception.
+
 ## Component Organization
 
 Components are grouped by the part of the site they support:
