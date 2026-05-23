@@ -88,6 +88,7 @@ export default async function ReaderPage({
             {currentEpisode.excerpt.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
+            {/* TODO: Replace this sample copy with sanitized public-domain chapter text. */}
             <p>
               This demo uses a short adapted excerpt placeholder while the ingestion worker is still
               future work. The next milestone will replace these samples with sanitized
