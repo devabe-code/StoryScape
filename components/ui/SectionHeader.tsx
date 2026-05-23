@@ -7,6 +7,7 @@ export type SectionHeaderProps = HTMLAttributes<HTMLDivElement> & {
   heading: string;
   level?: 1 | 2 | 3;
   supportingText?: string;
+  tone?: "default" | "inverse";
 };
 
 export function SectionHeader({
@@ -16,9 +17,11 @@ export function SectionHeader({
   heading,
   level = 2,
   supportingText,
+  tone = "default",
   ...props
 }: SectionHeaderProps) {
   const HeadingTag = `h${level}` as const;
+  const isInverse = tone === "inverse";
 
   return (
     <div
@@ -27,18 +30,31 @@ export function SectionHeader({
     >
       <div className="max-w-3xl">
         {eyebrow ? (
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ember">{eyebrow}</p>
+          <p
+            className={cn(
+              "text-sm font-semibold uppercase tracking-[0.18em]",
+              isInverse ? "text-brass" : "text-ember"
+            )}
+          >
+            {eyebrow}
+          </p>
         ) : null}
         <HeadingTag
           className={cn(
-            "font-serif leading-tight text-ink",
+            "font-serif leading-tight",
+            isInverse ? "text-paper" : "text-ink",
             level === 1 ? "mt-3 text-5xl" : "text-3xl"
           )}
         >
           {heading}
         </HeadingTag>
         {supportingText ? (
-          <p className="mt-3 text-sm leading-6 text-ink/65 sm:text-base sm:leading-7">
+          <p
+            className={cn(
+              "mt-3 text-sm leading-6 sm:text-base sm:leading-7",
+              isInverse ? "text-paper/72" : "text-ink/65"
+            )}
+          >
             {supportingText}
           </p>
         ) : null}

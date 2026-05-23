@@ -25,4 +25,10 @@ describe("SectionHeader", () => {
 
     expect(screen.getByRole("button", { name: "View all" })).toBeInTheDocument();
   });
+
+  it("supports inverse tone for dark sections", () => {
+    render(<SectionHeader heading="Soundscape preview" tone="inverse" />);
+
+    expect(screen.getByRole("heading", { name: "Soundscape preview" })).toHaveClass("text-paper");
+  });
 });
